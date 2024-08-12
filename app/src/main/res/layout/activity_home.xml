@@ -9,6 +9,7 @@
     tools:context=".HomeActivity">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -38,7 +39,7 @@
         app:fabAlignmentMode="center"
         app:fabAnchorMode="cradle"
         app:fabCradleMargin="@dimen/_6sdp"
-        app:fabCradleVerticalOffset="@dimen/_6sdp">
+        app:fabCradleVerticalOffset="@dimen/_3sdp">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNavigationView"
@@ -83,6 +84,7 @@
             app:navGraph="@navigation/nav_graph"
             tools:layout_editor_absoluteX="1dp"
             tools:layout_editor_absoluteY="1dp" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

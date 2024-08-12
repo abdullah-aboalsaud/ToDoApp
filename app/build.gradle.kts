@@ -59,6 +59,9 @@ dependencies {
     // ssp
     implementation(libs.ssp.android)
 
+    //calendar
+    implementation(libs.material.calendarview)
+
 
 }
 

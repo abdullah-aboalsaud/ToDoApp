@@ -9,4 +9,5 @@
         android:name="com.example.todoapp.TestFragment"
         android:label="fragment_test"
         tools:layout="@layout/fragment_test" />
+
 </navigation>
