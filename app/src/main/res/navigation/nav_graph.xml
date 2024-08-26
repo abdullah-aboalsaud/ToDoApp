@@ -3,11 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/testFragment">
-    <fragment
-        android:id="@+id/testFragment"
-        android:name="com.example.todoapp.TestFragment"
-        android:label="fragment_test"
-        tools:layout="@layout/fragment_test" />
+    app:startDestination="@id/taskFragment">
 
+
+    <fragment
+        android:id="@+id/taskFragment"
+        android:name="com.example.todoapp.ui.fragments.TaskFragment"
+        android:label="fragment_task"
+        tools:layout="@layout/fragment_task" />
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.example.todoapp.ui.fragments.SettingFragment"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting" />
+    <dialog
+        android:id="@+id/addTaskBottomSheet"
+        android:name="com.example.todoapp.ui.fragments.AddTaskBottomSheet"
+        android:label="AddTaskBottomSheet"
+        tools:layout="@layout/fragment_add_task" />
 </navigation>

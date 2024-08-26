@@ -3,6 +3,8 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     id("androidx.navigation.safeargs.kotlin")
     id("kotlin-parcelize")
+    kotlin("kapt")
+
 }
 
 android {
@@ -61,6 +63,12 @@ dependencies {
 
     //calendar
     implementation(libs.material.calendarview)
+
+
+    // room
+    implementation(libs.androidx.room.runtime)
+    // To use Kotlin annotation processing tool (kapt)
+    kapt(libs.androidx.room.compiler)
 
 
 }

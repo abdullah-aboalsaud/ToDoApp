@@ -3,15 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/lime"
-    tools:context=".TestFragment">
-
+    tools:context=".ui.fragments.TestFragment">
 
     <TextView
+        android:id="@+id/tv_test"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_gravity="center"
         android:gravity="center"
-        android:text="welcome"
-        android:textSize="@dimen/_40ssp" />
+        android:text="@string/hello_blank_fragment" />
 
 </FrameLayout>
