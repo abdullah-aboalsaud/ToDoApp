@@ -1,12 +1,19 @@
 <resources>
     <!-- Base application theme. -->
     <style name="Base.Theme.ToDoApp" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- to stop default splash screen   -->
+        <item name="android:windowIsTranslucent">true</item>
+
         <item name="colorPrimary">@color/blue</item>
         <item name="colorPrimaryDark">#254875</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="android:statusBarColor">@color/blue</item>
         <item name="android:homeAsUpIndicator">@drawable/back</item>
         <item name="floatingActionButtonStyle">@style/fab_style</item>
+
+        <item name="colorSecondary">@color/blue</item>
+
+
     </style>
 
     <style name="Theme.ToDoApp" parent="Base.Theme.ToDoApp" />

@@ -8,7 +8,7 @@ import com.example.todoapp.database.dao.TasksDao
 import com.example.todoapp.database.model.Task
 import com.example.todoapp.utils.DATABASE_NAME
 
-@Database(entities = [Task::class], version = 1)
+@Database(entities = [Task::class], version = 2)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun tasksDao(): TasksDao

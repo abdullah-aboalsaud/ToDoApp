@@ -21,5 +21,7 @@
     <string name="light">Light</string>
     <string name="dark">Dark</string>
     <string name="english">English</string>
+    <string name="task_added_successfully">تم اضافة المهمة بنجاح</string>
+    <string name="ok">تم</string>
 
 </resources>

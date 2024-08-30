@@ -60,16 +60,14 @@ dependencies {
     implementation(libs.sdp.android)
     // ssp
     implementation(libs.ssp.android)
-
     //calendar
     implementation(libs.material.calendarview)
-
-
     // room
     implementation(libs.androidx.room.runtime)
     // To use Kotlin annotation processing tool (kapt)
     kapt(libs.androidx.room.compiler)
-
+    //swipe to delete
+    implementation(libs.swipelayout)
 
 }
 

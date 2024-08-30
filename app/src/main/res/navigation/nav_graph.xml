@@ -15,10 +15,23 @@
         android:id="@+id/settingFragment"
         android:name="com.example.todoapp.ui.fragments.SettingFragment"
         android:label="fragment_setting"
-        tools:layout="@layout/fragment_setting" />
+        tools:layout="@layout/fragment_setting">
+        <action
+            android:id="@+id/action_settingFragment_to_editTaskFragment"
+            app:destination="@id/editTaskFragment" />
+    </fragment>
     <dialog
         android:id="@+id/addTaskBottomSheet"
         android:name="com.example.todoapp.ui.fragments.AddTaskBottomSheet"
         android:label="AddTaskBottomSheet"
-        tools:layout="@layout/fragment_add_task" />
+        tools:layout="@layout/fragment_add_task">
+        <action
+            android:id="@+id/action_addTaskBottomSheet_to_taskFragment"
+            app:destination="@id/taskFragment" />
+    </dialog>
+    <fragment
+        android:id="@+id/editTaskFragment"
+        android:name="com.example.todoapp.ui.fragments.EditTaskFragment"
+        android:label="fragment_edit_task"
+        tools:layout="@layout/fragment_edit_task" />
 </navigation>

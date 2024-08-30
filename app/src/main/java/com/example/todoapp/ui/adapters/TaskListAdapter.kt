@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.todoapp.database.model.Task
 import com.example.todoapp.databinding.ItemTaskBinding
+import com.example.todoapp.utils.formatTimeOnly
 
 class TaskListAdapter(private var tasksList: MutableList<Task>? = null) :
     Adapter<TaskListAdapter.TaskViewHolder>() {
@@ -36,7 +37,7 @@ class TaskListAdapter(private var tasksList: MutableList<Task>? = null) :
     class TaskViewHolder(val binding: ItemTaskBinding) : ViewHolder(binding.root) {
         fun bind(task: Task?) {
             binding.title.text = task?.title
-            binding.time.text = "${task?.time}"
+            binding.time.text = task?.time?.formatTimeOnly()
         }
 
     }

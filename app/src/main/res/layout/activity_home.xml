@@ -5,8 +5,9 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:background="@color/lime"
+    android:background="@color/activity_bg_color"
     tools:context=".ui.activities.HomeActivity">
+
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBar"
@@ -70,6 +71,7 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="?attr/actionBarSize"
