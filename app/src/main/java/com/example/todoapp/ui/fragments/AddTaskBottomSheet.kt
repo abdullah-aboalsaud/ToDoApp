@@ -16,7 +16,6 @@ import com.example.todoapp.utils.formatTimeOnly
 import com.example.todoapp.utils.ignoreDate
 import com.example.todoapp.utils.ignoreTime
 import com.example.todoapp.utils.setDate
-import com.example.todoapp.utils.setTime
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import java.util.Calendar
 
@@ -82,7 +81,7 @@ class AddTaskBottomSheet() : BottomSheetDialogFragment() {
                     title = binding.title.text.toString(),
                     description = binding.description.text.toString(),
                     date = date.timeInMillis,
-                    time = time.timeInMillis,
+                    time = selectedTime.timeInMillis,
                 )
             )
 
@@ -94,7 +93,7 @@ class AddTaskBottomSheet() : BottomSheetDialogFragment() {
     val date = Calendar.getInstance().apply {
         ignoreTime()
     }
-    val time = Calendar.getInstance().apply {
+    val selectedTime = Calendar.getInstance().apply {
         ignoreDate()
     }
 
@@ -113,13 +112,14 @@ class AddTaskBottomSheet() : BottomSheetDialogFragment() {
 
     private fun showTimePicker() {
         TimePickerDialog(
-            requireContext(), TimePickerDialog.OnTimeSetListener { timePicker, hour, minute ->
-                time.setTime(hour, minute)
-                binding.selectTimeTv.text = time.formatTimeOnly()
+            requireContext(), { timePicker, hour, minute ->
+                selectedTime.set(Calendar.HOUR_OF_DAY, hour)
+                selectedTime.set(Calendar.MINUTE, minute)
+                binding.selectTimeTv.text = selectedTime.formatTimeOnly()
 
             },
-            time.get(Calendar.HOUR),
-            time.get(Calendar.MINUTE),
+            selectedTime.get(Calendar.HOUR_OF_DAY),
+            selectedTime.get(Calendar.MINUTE),
             false
         ).show()
 

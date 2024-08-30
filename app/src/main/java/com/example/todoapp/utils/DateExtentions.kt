@@ -34,11 +34,11 @@ fun Calendar.formatDateOnly(): String {
 }
 
 fun Calendar.formatTimeOnly(): String {
-    val timeFormat = SimpleDateFormat("HH:mm a", Locale.getDefault())
-    return timeFormat.format(time)
+    val timeFormat = SimpleDateFormat("hh:mm a", Locale.getDefault())
+    return timeFormat.format(this.time)
 }
 
 fun Long.formatTimeOnly(): String {
-    val timeFormat = SimpleDateFormat("HH:mm a", Locale.getDefault())
+    val timeFormat = SimpleDateFormat("hh:mm a", Locale.getDefault())
     return timeFormat.format(this)
 }
