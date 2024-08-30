@@ -19,10 +19,10 @@ interface TasksDao {
     fun updateTask(task: Task)
 
     @Query("select * from Task")
-    fun getAllTasks(): List<Task>
+    fun getAllTasks(): MutableList<Task>
 
     @Query("select * from Task where date=:date order by time asc")
-    fun getTasksByDate(date: Long): List<Task>
+    fun getTasksByDate(date: Long): MutableList<Task>
 
 
 }

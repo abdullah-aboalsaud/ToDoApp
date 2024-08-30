@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.todoapp.base.BaseFragment
 import com.example.todoapp.database.AppDatabase
+import com.example.todoapp.database.model.Task
 import com.example.todoapp.databinding.FragmentTaskBinding
 import com.example.todoapp.ui.adapters.TaskListAdapter
 import com.example.todoapp.utils.ignoreTime
@@ -21,11 +22,31 @@ class TaskFragment : BaseFragment<FragmentTaskBinding>() {
 
     private val adapter = TaskListAdapter()
     private val selectedDate = Calendar.getInstance().apply { ignoreTime() }
+    private var tasksList = mutableListOf<Task>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.rvTasks.adapter = adapter
+        setUpAdapterWithClicks()
         setSelectedDate()
+
+    }
+
+    private fun setUpAdapterWithClicks() {
+        binding.rvTasks.adapter = adapter
+        adapter.onItemClick = TaskListAdapter.OnItemClickListener { task ->
+            // todo when click on task item
+        }
+        adapter.onDoneClick = TaskListAdapter.OnItemClickListener { task ->
+            //todo when click on done button
+        }
+        adapter.onDeleteClick = TaskListAdapter.OnItemClickListener { task ->
+            AppDatabase.getInstance()
+                .tasksDao()
+                .deleteTask(task)
+
+            getTasksFromDatabase()
+        }
+
     }
 
     private fun setSelectedDate() {
@@ -49,12 +70,12 @@ class TaskFragment : BaseFragment<FragmentTaskBinding>() {
     }
 
     fun getTasksFromDatabase() {
-        val tasksList = AppDatabase
+        tasksList = AppDatabase
             .getInstance()
             .tasksDao()
             .getTasksByDate(selectedDate.timeInMillis)
 
-        adapter.submitNewList(tasksList.toMutableList())
+        adapter.submitNewList(tasksList)
 
     }
 

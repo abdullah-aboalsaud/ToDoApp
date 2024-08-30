@@ -20,7 +20,7 @@ import com.example.todoapp.utils.setTime
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import java.util.Calendar
 
-class AddTaskBottomSheet : BottomSheetDialogFragment() {
+class AddTaskBottomSheet() : BottomSheetDialogFragment() {
     private lateinit var binding: FragmentAddTaskBinding
 
     override fun onCreateView(
@@ -61,14 +61,6 @@ class AddTaskBottomSheet : BottomSheetDialogFragment() {
             binding.titleTil.error = null
         }
 
-        if (binding.description.text.toString().isBlank()) {
-            isValid = false
-            // show error
-            binding.descriptionTil.error = "Please enter description"
-        } else {
-            binding.descriptionTil.error = null
-        }
-
         if (binding.selectDateTv.text.toString().isBlank()) {
             isValid = false
             // show error
@@ -95,6 +87,7 @@ class AddTaskBottomSheet : BottomSheetDialogFragment() {
             )
 
         findNavController().navigate(R.id.action_addTaskBottomSheet_to_taskFragment)
+
     }
 
 
