@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/_4sdp"
     app:draggedItem="@id/taskItem"
     app:leftItem="@id/delete_item"
     app:swipeDirection="right">
@@ -15,7 +16,8 @@
         android:layout_marginStart="@dimen/_1sdp"
         android:elevation="10dp"
         app:cardCornerRadius="20dp">
-        <ImageView
+
+    <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="start"

@@ -14,4 +14,5 @@
     <color name="bottom_nav_bg_color">@color/white</color>
     <color name="activity_bg_color">@color/lime</color>
     <color name="text_color">@color/white</color>
+    <color name="arrow">@color/black</color>
 </resources>

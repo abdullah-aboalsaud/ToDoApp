@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.todoapp.base.BaseFragment
 import com.example.todoapp.database.AppDatabase
 import com.example.todoapp.database.model.Task
@@ -34,11 +35,23 @@ class TaskFragment : BaseFragment<FragmentTaskBinding>() {
     private fun setUpAdapterWithClicks() {
         binding.rvTasks.adapter = adapter
         adapter.onItemClick = TaskListAdapter.OnItemClickListener { task ->
-            // todo when click on task item
+            findNavController().navigate(
+                TaskFragmentDirections.actionTaskFragmentToEditTaskFragment(
+                    task
+                )
+            )
         }
         adapter.onDoneClick = TaskListAdapter.OnItemClickListener { task ->
-            //todo when click on done button
+            if (task.status) {
+                task.status = false
+                AppDatabase.getInstance().tasksDao().updateTask(task)
+            } else {
+                task.status = true
+                AppDatabase.getInstance().tasksDao().updateTask(task)
+            }
+            getTasksFromDatabase()
         }
+
         adapter.onDeleteClick = TaskListAdapter.OnItemClickListener { task ->
             AppDatabase.getInstance()
                 .tasksDao()

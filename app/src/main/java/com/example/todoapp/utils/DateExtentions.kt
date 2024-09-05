@@ -1,5 +1,8 @@
 package com.example.todoapp.utils
 
+import android.app.DatePickerDialog
+import android.app.TimePickerDialog
+import android.content.Context
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -41,4 +44,44 @@ fun Calendar.formatTimeOnly(): String {
 fun Long.formatTimeOnly(): String {
     val timeFormat = SimpleDateFormat("hh:mm a", Locale.getDefault())
     return timeFormat.format(this)
+}
+
+fun Long.formatDateOnly(): String {
+    val dateFormat = SimpleDateFormat("EEE, dd MM yyyy", Locale.ENGLISH)
+    return dateFormat.format(this)
+}
+
+
+fun Context.showTimePicker(
+    calendar: Calendar,
+    onTimeSet: (hour: Int, minute: Int) -> Unit
+) {
+    TimePickerDialog(
+        this, { _, hour, minute ->
+            calendar.set(Calendar.HOUR_OF_DAY, hour)
+            calendar.set(Calendar.MINUTE, minute)
+            onTimeSet(hour, minute)
+        },
+        calendar.get(Calendar.HOUR_OF_DAY),
+        calendar.get(Calendar.MINUTE),
+        false
+    ).show()
+}
+
+fun Context.showDatePicker(
+    calendar: Calendar,
+    onDateSet: (year: Int, month: Int, day: Int) -> Unit
+) {
+    DatePickerDialog(
+        this,
+        { _, year, month, dayOfMonth ->
+            calendar.set(Calendar.YEAR, year)
+            calendar.set(Calendar.MONTH, month)
+            calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+            onDateSet(year, month, dayOfMonth)
+        },
+        calendar.get(Calendar.YEAR),
+        calendar.get(Calendar.MONTH),
+        calendar.get(Calendar.DAY_OF_MONTH)
+    ).show()
 }

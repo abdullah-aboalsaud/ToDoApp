@@ -60,7 +60,7 @@
     </style>
 
     <style name="Modal" parent="Widget.Design.BottomSheet.Modal">
-        <item name="android:background">@drawable/bottom_sheet_bg</item>
+        <item name="android:background">@drawable/bottom_sheet_bg</item>f
     </style>
 
     <style name="BottomSheetStyle2" parent="Widget.Design.BottomSheet.Modal">
