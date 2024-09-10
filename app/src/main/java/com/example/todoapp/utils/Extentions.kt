@@ -60,8 +60,8 @@ fun Context.showSuccessDialog(fragment: Fragment? = null) {
 }
 
 fun Fragment.showToolbarSettingTitle(){
-    requireActivity().findViewById<TextView>(R.id.tv_toolbar_title).setText(R.string.settings)
+    activity?.findViewById<TextView>(R.id.tv_toolbar_title)?.setText(R.string.settings)
 }
 fun Fragment.showToolbarToDoTitle(){
-    requireActivity().findViewById<TextView>(R.id.tv_toolbar_title).setText(R.string.to_do_list)
+    activity?.findViewById<TextView>(R.id.tv_toolbar_title)?.setText(R.string.to_do_list)
 }

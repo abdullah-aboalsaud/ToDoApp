@@ -20,7 +20,7 @@ abstract class AppDatabase : RoomDatabase() {
             return db!!
         }
 
-        fun initDatabase(applicationContext: Context): AppDatabase {
+         fun initDatabase(applicationContext: Context): AppDatabase {
             if (db == null) {
                 db = Room.databaseBuilder(
                     applicationContext,
