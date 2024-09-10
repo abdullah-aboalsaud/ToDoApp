@@ -40,6 +40,11 @@ android {
     buildFeatures {
         viewBinding = true
     }
+    android {
+        androidResources {
+            generateLocaleConfig = true
+        }
+    }
 }
 
 dependencies {

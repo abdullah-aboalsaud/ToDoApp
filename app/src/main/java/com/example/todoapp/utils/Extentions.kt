@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.TypedValue
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.DialogFragment
@@ -56,4 +57,11 @@ fun Context.showSuccessDialog(fragment: Fragment? = null) {
         }
         .setCancelable(false)
     dialog.show()
+}
+
+fun Fragment.showToolbarSettingTitle(){
+    activity?.findViewById<TextView>(R.id.tv_toolbar_title)?.setText(R.string.settings)
+}
+fun Fragment.showToolbarToDoTitle(){
+    activity?.findViewById<TextView>(R.id.tv_toolbar_title)?.setText(R.string.to_do_list)
 }

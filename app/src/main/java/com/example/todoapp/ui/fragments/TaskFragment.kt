@@ -13,6 +13,7 @@ import com.example.todoapp.ui.adapters.TaskListAdapter
 import com.example.todoapp.utils.ignoreTime
 import com.example.todoapp.utils.setDate
 import com.example.todoapp.utils.showBottomAppBarViews
+import com.example.todoapp.utils.showToolbarToDoTitle
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import java.util.Calendar
 
@@ -80,6 +81,7 @@ class TaskFragment : BaseFragment<FragmentTaskBinding>() {
         super.onResume()
         getTasksFromDatabase()
         showBottomAppBarViews()
+        showToolbarToDoTitle()
     }
 
     fun getTasksFromDatabase() {

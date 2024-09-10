@@ -8,6 +8,10 @@
         android:title="@string/tasks"
         app:showAsAction="always" />
     <item
+        android:id="@+id/blank"
+        android:title=""
+        app:showAsAction="never" />
+    <item
         android:id="@+id/settingFragment"
         android:icon="@drawable/ic_settings"
         android:title="@string/settings"
